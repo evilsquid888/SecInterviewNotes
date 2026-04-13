@@ -274,15 +274,11 @@ Build a scraper that extracts security-relevant data from web pages: emails, dir
 ### Complete Solution
 
 ```python
-"""Web Scraper -- Complete Educational Implementation
-Only use against domains you own or have written authorization to test.
-"""
+"""Web Scraper -- Educational Implementation (authorized targets only)"""
 import re
 import json
 import sys
-import time
 from urllib.parse import urljoin, urlparse
-from collections import defaultdict
 
 import requests
 from bs4 import BeautifulSoup
@@ -290,15 +286,8 @@ from bs4 import BeautifulSoup
 USER_AGENT = "Mozilla/5.0 (educational-security-scraper/1.0)"
 
 SECURITY_HEADERS = [
-    "Strict-Transport-Security",
-    "Content-Security-Policy",
-    "X-Content-Type-Options",
-    "X-Frame-Options",
-    "X-XSS-Protection",
-    "Referrer-Policy",
-    "Permissions-Policy",
-    "Cross-Origin-Opener-Policy",
-    "Cross-Origin-Resource-Policy",
+    "Strict-Transport-Security", "Content-Security-Policy",
+    "X-Content-Type-Options", "X-Frame-Options", "Referrer-Policy",
 ]
 
 
@@ -431,9 +420,7 @@ Build a TCP port scanner from scratch, then build a detector that identifies sca
 ### Complete Solution
 
 ```python
-"""Port Scanner and Scan Detector -- Complete Educational Implementation
-Only scan hosts you own or have explicit written authorization to test.
-"""
+"""Port Scanner and Scan Detector -- Educational Implementation"""
 import socket
 import sys
 import json
@@ -441,8 +428,6 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from collections import defaultdict
 from datetime import datetime
-
-# --- Part 1: Port Scanner ---
 
 COMMON_SERVICES = {
     21: "FTP", 22: "SSH", 23: "Telnet", 25: "SMTP", 53: "DNS",
@@ -455,17 +440,15 @@ COMMON_SERVICES = {
 
 def scan_port(host: str, port: int, timeout: float = 1.0) -> dict:
     """Attempt a TCP connect scan on a single port."""
-    result = {"port": port, "state": "closed", "service": COMMON_SERVICES.get(port, "unknown"), "banner": ""}
+    result = {"port": port, "state": "closed", "service": COMMON_SERVICES.get(port, "unknown")}
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(timeout)
-        conn_result = sock.connect_ex((host, port))
-        if conn_result == 0:
+        if sock.connect_ex((host, port)) == 0:
             result["state"] = "open"
             try:
                 sock.send(b"HEAD / HTTP/1.0\r\n\r\n")
-                banner = sock.recv(1024).decode("utf-8", errors="replace").strip()
-                result["banner"] = banner[:200]  # Truncate long banners
+                result["banner"] = sock.recv(1024).decode("utf-8", errors="replace").strip()[:200]
             except (socket.timeout, OSError):
                 pass
         sock.close()
@@ -485,8 +468,6 @@ def scan_host(host: str, ports: list, max_workers: int = 100, timeout: float = 1
         print(f"Error: Cannot resolve hostname '{host}'")
         return results
 
-    print(f"Scanning {host} ({resolved_ip}) -- {len(ports)} ports")
-
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {executor.submit(scan_port, resolved_ip, p, timeout): p for p in ports}
         for future in as_completed(futures):
@@ -500,8 +481,6 @@ def scan_host(host: str, ports: list, max_workers: int = 100, timeout: float = 1
     print(f"\nScan completed in {elapsed:.2f}s -- {len(results)} open ports found")
     return results
 
-
-# --- Part 2: Scan Detector ---
 
 def detect_scans(log_lines: list, threshold_ports: int = 15, window_seconds: int = 60) -> list:
     """Detect port scanning from connection log entries.
@@ -593,10 +572,7 @@ Design and implement (in a sandboxed lab) an SSH-based botnet: C2 server, bot re
 ### Complete Solution
 
 ```python
-"""SSH Botnet -- Complete Educational Implementation (LAB ONLY)
-WARNING: This code is for authorized educational use in isolated lab environments.
-Deploying this against systems you do not own is illegal.
-"""
+"""SSH Botnet -- Educational Implementation (LAB ONLY)"""
 import json
 import socket
 import threading
@@ -759,8 +735,6 @@ Build a tool that generates credential combinations from wordlists and tests the
 ```python
 """Password Brute-Forcer -- Complete Educational Implementation
 Only use against authentication endpoints you own and control.
-
-Includes a dummy target server for safe local testing.
 """
 import json
 import sys
@@ -1011,19 +985,12 @@ Build a forensic tool that recovers deleted records from SQLite databases. SQLit
 ### Complete Solution
 
 ```python
-"""SQLite Forensic Recovery -- Complete Educational Implementation
-Recovers deleted records from SQLite databases by analyzing free pages,
-freelist entries, and performing string carving on unallocated space.
-"""
-import csv
+"""SQLite Forensic Recovery -- Complete Educational Implementation"""
 import json
 import os
 import re
-import sqlite3
 import struct
 import sys
-from io import StringIO
-from datetime import datetime
 
 
 SQLITE_HEADER = b"SQLite format 3\x00"
@@ -1033,26 +1000,18 @@ def validate_sqlite(filepath: str) -> dict:
     """Validate and extract header information from a SQLite database."""
     with open(filepath, "rb") as f:
         header = f.read(100)
-
     if not header.startswith(SQLITE_HEADER):
         return {"valid": False, "error": "Not a SQLite database"}
 
     page_size = struct.unpack(">H", header[16:18])[0]
     if page_size == 1:
-        page_size = 65536  # Special case in SQLite
-
+        page_size = 65536
     return {
         "valid": True,
         "page_size": page_size,
-        "file_format_write": header[18],
-        "file_format_read": header[19],
         "page_count": struct.unpack(">I", header[28:32])[0],
         "first_freelist_page": struct.unpack(">I", header[32:36])[0],
         "freelist_page_count": struct.unpack(">I", header[36:40])[0],
-        "schema_version": struct.unpack(">I", header[40:44])[0],
-        "text_encoding": {1: "UTF-8", 2: "UTF-16le", 3: "UTF-16be"}.get(
-            struct.unpack(">I", header[56:60])[0], "unknown"
-        ),
     }
 
 
@@ -1141,40 +1100,17 @@ def recover_wal(filepath: str) -> dict:
         return carve_artifacts(f.read())
 
 
-def get_live_tables(filepath: str) -> dict:
-    """Get current (non-deleted) table schemas and row counts for context."""
-    tables = {}
-    try:
-        conn = sqlite3.connect(f"file:{filepath}?mode=ro", uri=True)
-        cursor = conn.cursor()
-        cursor.execute("SELECT name, sql FROM sqlite_master WHERE type='table'")
-        for name, sql in cursor.fetchall():
-            cursor.execute(f'SELECT COUNT(*) FROM "{name}"')
-            count = cursor.fetchone()[0]
-            tables[name] = {"schema": sql, "row_count": count}
-        conn.close()
-    except sqlite3.Error as e:
-        tables["_error"] = str(e)
-    return tables
-
-
 def full_recovery(filepath: str) -> dict:
     """Run a complete forensic recovery on a SQLite database."""
     header_info = validate_sqlite(filepath)
     if not header_info["valid"]:
         return header_info
-
-    report = {
+    return {
         "file": os.path.abspath(filepath),
-        "file_size": os.path.getsize(filepath),
         "header": header_info,
-        "live_tables": get_live_tables(filepath),
         "recovered_data": recover_from_free_pages(filepath, header_info),
         "wal_recovery": recover_wal(filepath),
-        "analysis_timestamp": datetime.utcnow().isoformat(),
     }
-
-    return report
 
 
 if __name__ == "__main__":
@@ -1221,9 +1157,7 @@ Build a malware signature scanner with string-based signatures and YARA integrat
 ### Complete Solution
 
 ```python
-"""Malware Signature Scanner -- Complete Educational Implementation
-For authorized malware analysis and learning environments only.
-"""
+"""Malware Signature Scanner -- Educational Implementation"""
 import hashlib
 import json
 import math
