@@ -31,6 +31,8 @@ Where did these notes come from? See the [README](README.md).
 
 ## Learning Tips
 
+> **[Deep Dive: Learning Tips](sections/learning-tips.md)** - Spaced repetition systems, study frameworks, and mental health strategies with step-by-step guides
+
 - [Learning How To Learn](https://www.coursera.org/learn/learning-how-to-learn) course on Coursera is amazing and very useful. Take the full course, or read this [summary](https://medium.com/learn-love-code/learnings-from-learning-how-to-learn-19d149920dc4) on Medium.
 
 - **Track concepts - "To learn", "Revising", "Done"**
@@ -65,6 +67,8 @@ Where did these notes come from? See the [README](README.md).
   - See interviews for what they are - they are *not* a measure of you being "good enough".
 
 ## Interviewing Tips
+
+> **[Deep Dive: Interviewing Tips](sections/interviewing-tips.md)** - Example dialogues, preparation checklists, and techniques for thinking aloud with real interview scenarios
 
 - **Interview questions**
   - Interview questions are intentionally vague. This is to encourage questions.
@@ -138,6 +142,8 @@ Where did these notes come from? See the [README](README.md).
 ### Interviewers are potential friends and they want to help you get the job, they are on your side. Let them help you, ask them questions, recite everything you know on a topic and *say your thought process out loud*
 
 ## Networking
+
+> **[Deep Dive: Networking](sections/networking.md)** - Protocol deep dives, packet diagrams, hands-on commands (nmap, tcpdump, dig), and security implications for every protocol
 
 - OSI Model
   - Application; layer 7 (and basically layers 5 & 6) (includes API, HTTP, etc).
@@ -268,6 +274,8 @@ Where did these notes come from? See the [README](README.md).
 
 ## Web Application
 
+> **[Deep Dive: Web Application Security](sections/web-application.md)** - Vulnerable and fixed code examples, real-world breaches (Capital One, British Airways), and hands-on labs (OWASP Juice Shop, PortSwigger Academy)
+
 - Same origin policy
   - Only accept requests from the same origin domain.  
 - CORS
@@ -322,6 +330,8 @@ Where did these notes come from? See the [README](README.md).
 
 ## Infrastructure (Prod / Cloud) Virtualisation
 
+> **[Deep Dive: Infrastructure & Cloud](sections/infrastructure-cloud.md)** - Hypervisor internals, container escapes, Spectre/Meltdown, BeyondCorp zero-trust, and Log4Shell kill chain
+
 - Hypervisors.
 - Hyperjacking.
 - Containers, VMs, clusters.
@@ -338,6 +348,8 @@ Where did these notes come from? See the [README](README.md).
 - Log4j vuln.
 
 ## OS Implementation and Systems
+
+> **[Deep Dive: OS Implementation & Systems](sections/os-systems.md)** - Buffer overflows with exploit code, Active Directory attacks, Linux privilege escalation, and forensic artifacts
 
 - Privilege escalation techniques, and prevention.
 - Buffer Overflows.
@@ -370,6 +382,8 @@ Where did these notes come from? See the [README](README.md).
 
 ### Mitigations
 
+> **[Deep Dive: Mitigations](sections/mitigations.md)** - DEP, ASLR, code signing, MACs explained with bypass techniques and defense-in-depth strategies
+
 - Patching
 - Data Execution Prevention
 - Address space layout randomisation
@@ -392,6 +406,8 @@ Where did these notes come from? See the [README](README.md).
   - Security is about protecting people, we should build technology that people can trust, not constantly blame users.
 
 ## Cryptography
+
+> **[Deep Dive: Cryptography](sections/cryptography.md)** - RSA/AES/ECC explained, Python code examples, ASCII diagrams of key exchange, and common implementation mistakes
 
 - Explain key differences between Encryption vs Encoding vs Hashing vs Obfuscation vs Signing
 - Encryption is for secrecy.
@@ -435,6 +451,8 @@ Where did these notes come from? See the [README](README.md).
 
 ## Authentication
 
+> **[Deep Dive: Authentication](sections/authentication.md)** - OAuth/SAML/Kerberos flows, DigiNotar breach, Golden Tickets, FIDO2/Passkeys, and MFA comparison matrix
+
 - Certificates
   - What info do certs contain, how are they signed?
   - Look at DigiNotar.
@@ -466,6 +484,8 @@ Where did these notes come from? See the [README](README.md).
 
 ## Identity
 
+> **[Deep Dive: Identity](sections/identity.md)** - ACLs, service account abuse, cloud IAM misconfigurations, JWT exploitation, and federated identity attacks
+
 - Access Control Lists (ACLs)
   - Control which authenticated users can access which resources.
 - Service accounts vs User accounts
@@ -478,6 +498,8 @@ Where did these notes come from? See the [README](README.md).
 - Federated identity
 
 ## Malware & Reversing
+
+> **[Deep Dive: Malware & Reversing](sections/malware-reversing.md)** - Stuxnet/WannaCry/Sunburst case studies, process hollowing walkthrough, IDA Pro vs Ghidra, and analysis triage workflows
 
 - Interesting malware
   - Conficker.
@@ -510,6 +532,8 @@ Where did these notes come from? See the [README](README.md).
   - Hybrid Analysis.
 
 ## Exploits
+
+> **[Deep Dive: Exploits](sections/exploits.md)** - Social/physical/network attack vectors, reverse shells, spoofing techniques, and Metasploit/Shodan/Hak5 tool guides
 
 - Three ways to attack - Social, Physical, Network
   - **Social**
@@ -558,6 +582,8 @@ Where did these notes come from? See the [README](README.md).
   - Hak5 tools.
 
 ## Attack Structure
+
+> **[Deep Dive: Attack Structure](sections/attack-structure.md)** - All 14 MITRE ATT&CK phases with technique IDs, detection opportunities, and a complete SolarWinds/SUNBURST campaign walkthrough
 
 Practice describing security concepts in the context of an attack. These categories are a rough guide on attack structure for a targeted attack. Non-targeted attacks tend to be a bit more "all-in-one".
 
@@ -618,6 +644,8 @@ Practice describing security concepts in the context of an attack. These categor
 
 ## Threat Modelling
 
+> **[Deep Dive: Threat Modelling](sections/threat-modelling.md)** - STRIDE/DREAD/PASTA frameworks with worked examples, complete threat model for a banking app, and framework comparison guide
+
 - When to do threat modelling?
   - When features / bugs need to be prioritized and negotiated.
   - Design phase of software development lifecycle ("secure by design").
@@ -651,6 +679,8 @@ Practice describing security concepts in the context of an attack. These categor
 - [Excellent talk](https://www.youtube.com/watch?v=vbwb6zqjZ7o) on "Defense Against the Dark Arts" by Lilly Ryan (contains *many* Harry Potter spoilers)
 
 ## Detection
+
+> **[Deep Dive: Detection](sections/detection.md)** - Snort/YARA/Sigma rules, Splunk queries, honeypot deployment, anomaly detection, and attacker evasion techniques
 
 - IDS
   - Intrusion Detection System (signature based (eg. snort) or behaviour based).
@@ -711,6 +741,8 @@ Practice describing security concepts in the context of an attack. These categor
 
 ## Digital Forensics
 
+> **[Deep Dive: Digital Forensics](sections/digital-forensics.md)** - Volatility commands, disk imaging workflows, memory analysis, mobile forensics, anti-forensics detection, and chain of custody templates
+
 - Evidence volatility (network vs memory vs disk)
 
 - Network forensics
@@ -753,6 +785,8 @@ Practice describing security concepts in the context of an attack. These categor
 
 ## Incident Management
 
+> **[Deep Dive: Incident Management](sections/incident-management.md)** - SANS PICERL and Google IMAG frameworks, complete incident scenario walkthrough, escalation matrices, and postmortem templates
+
 - Privacy incidents vs information security incidents
 - Know when to talk to legal, users, managers, directors.
 - Run a scenario from A to Z, how would you ...
@@ -783,6 +817,8 @@ Practice describing security concepts in the context of an attack. These categor
     - Google's IMAG (Incident Management At Google)
 
 ## Coding & Algorithms
+
+> **[Deep Dive: Coding & Algorithms](sections/coding-algorithms.md)** - Python implementations of every data structure and algorithm, Big O analysis, security-relevant regex patterns, and interview coding tips
 
 - The basics
   - Conditions (if, else).
@@ -825,6 +861,8 @@ Practice describing security concepts in the context of an attack. These categor
   - Understand common functions very well, be comfortable in the language.
 
 ### Security Themed Coding Challenges
+
+> **[Deep Dive: Security Coding Challenges](sections/security-coding-challenges.md)** - Complete Python implementations for all 9 challenges: cipher, log parser, web scraper, port scanner, botnet, brute-forcer, PDF scraper, SQLite recovery, and malware scanner
 
 These security engineering challenges focus on text parsing and manipulation, basic data structures, and simple logic flows. Give the challenges a go, no need to finish them to completion because all practice helps.
 

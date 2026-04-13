@@ -24,21 +24,42 @@ If you are someone who didn't get an offer because you weren't confident in some
 
 Finally, pull requests are welcome! Thank you to those who have made contributions and are helping to keep the list up to date.
 
+### How to Use This Guide
+
+The [main notes file](interview-study-notes-for-security-engineering.md) gives you a high-level overview of every topic. Each section links to a **Deep Dive** page in the `sections/` folder with:
+
+- Thorough explanations of every concept
+- Real-world examples and case studies (SolarWinds, Log4Shell, Capital One, etc.)
+- Code examples and hands-on commands
+- Interview tips and practice questions
+- External references to authoritative sources (OWASP, MITRE ATT&CK, NIST, RFCs)
+
+**Study strategy:** Read the main notes first to identify gaps, then dive into specific sections for depth.
+
 ### Contents
-- [Learning Tips](interview-study-notes-for-security-engineering.md#learning-tips)
-- [Interviewing Tips](interview-study-notes-for-security-engineering.md#interviewing-tips)
-- [Networking](interview-study-notes-for-security-engineering.md#networking)
-- [Web Application](interview-study-notes-for-security-engineering.md#web-application)
-- [Infrastructure (Prod / Cloud) Virtualisation](interview-study-notes-for-security-engineering.md#infrastructure-prod--cloud-virtualisation)
-- [OS Implementation and Systems](interview-study-notes-for-security-engineering.md#os-implementation-and-systems)
-- [Mitigations](interview-study-notes-for-security-engineering.md#mitigations)
-- [Cryptography, Authentication, Identity](interview-study-notes-for-security-engineering.md#cryptography-authentication-identity)
-- [Malware & Reversing](interview-study-notes-for-security-engineering.md#malware--reversing)
-- [Exploits](interview-study-notes-for-security-engineering.md#exploits)
-- [Attack Structure](interview-study-notes-for-security-engineering.md#attack-structure)
-- [Threat Modeling](interview-study-notes-for-security-engineering.md#threat-modeling)
-- [Detection](interview-study-notes-for-security-engineering.md#detection)
-- [Digital Forensics](interview-study-notes-for-security-engineering.md#digital-forensics)
-- [Incident Management](interview-study-notes-for-security-engineering.md#incident-management)
-- [Coding & Algorithms](interview-study-notes-for-security-engineering.md#coding--algorithms)
-- [Security Themed Coding Challenges](interview-study-notes-for-security-engineering.md#security-themed-coding-challenges)
+
+| Section | Overview | Deep Dive |
+|---------|----------|-----------|
+| Learning Tips | Study strategies and mental health | [Deep Dive](sections/learning-tips.md) |
+| Interviewing Tips | How to approach interview questions | [Deep Dive](sections/interviewing-tips.md) |
+| Networking | OSI model, protocols, DNS, TLS, firewalls | [Deep Dive](sections/networking.md) |
+| Web Application | XSS, SQLi, CSRF, SSRF, CORS | [Deep Dive](sections/web-application.md) |
+| Infrastructure & Cloud | Containers, VMs, cloud security, BeyondCorp | [Deep Dive](sections/infrastructure-cloud.md) |
+| OS Implementation & Systems | Privilege escalation, AD, Linux/Windows internals | [Deep Dive](sections/os-systems.md) |
+| Mitigations | DEP, ASLR, code signing, least privilege | [Deep Dive](sections/mitigations.md) |
+| Cryptography | Encryption, hashing, PKI, forward secrecy | [Deep Dive](sections/cryptography.md) |
+| Authentication | OAuth, SAML, Kerberos, FIDO2, MFA | [Deep Dive](sections/authentication.md) |
+| Identity | ACLs, service accounts, IAM, federation | [Deep Dive](sections/identity.md) |
+| Malware & Reversing | Notable malware, analysis techniques, RE tools | [Deep Dive](sections/malware-reversing.md) |
+| Exploits | Social/physical/network attacks, tools | [Deep Dive](sections/exploits.md) |
+| Attack Structure | Full kill chain, MITRE ATT&CK phases | [Deep Dive](sections/attack-structure.md) |
+| Threat Modelling | STRIDE, DREAD, PASTA frameworks | [Deep Dive](sections/threat-modelling.md) |
+| Detection | IDS, SIEM, YARA, Splunk, honeypots | [Deep Dive](sections/detection.md) |
+| Digital Forensics | Disk/memory/network/mobile forensics | [Deep Dive](sections/digital-forensics.md) |
+| Incident Management | PICERL, IMAG, playbooks, postmortems | [Deep Dive](sections/incident-management.md) |
+| Coding & Algorithms | Data structures, sorting, Big O, Python | [Deep Dive](sections/coding-algorithms.md) |
+| Security Coding Challenges | 9 hands-on projects with complete solutions | [Deep Dive](sections/security-coding-challenges.md) |
+
+### Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a detailed list of changes.
